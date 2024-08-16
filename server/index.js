@@ -10,9 +10,22 @@ const image = require("./Routes/Imagedat");
 
 const app = express();
 
-// Configure CORS to allow requests from specific origin
+// Configure CORS to allow requests from specific origins
+const allowedOrigins = [
+  'https://66bee5e69b90ffb89ad8d597--thriving-gumption-ae189f.netlify.app',
+  'https://thriving-gumption-ae189f.netlify.app'
+];
+
 app.use(cors({
-  origin: 'https://66bee5e69b90ffb89ad8d597--thriving-gumption-ae189f.netlify.app', // Replace with your Netlify domain
+  origin: function(origin, callback){
+    // allow requests with no origin (like mobile apps or curl requests)
+    if(!origin) return callback(null, true);
+    if(allowedOrigins.indexOf(origin) === -1){
+      const msg = 'The CORS policy for this site does not allow access from the specified Origin.';
+      return callback(new Error(msg), false);
+    }
+    return callback(null, true);
+  },
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   credentials: true // If you need to handle cookies or authentication tokens
 }));
