@@ -28,7 +28,7 @@
     "start:client": "set port=3009 && react-scripts start",
     "start:server": "nodemon D:/visionvers/server/index.js",
     "start": "concurrently \"npm run start:server\" \"npm run start:client\" ",
-    "build": "react-scripts build",
+    "build": "npm i",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
