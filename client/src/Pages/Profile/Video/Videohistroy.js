@@ -16,7 +16,7 @@ const Videohistroy = () => {
         const fetchHistory = async () => {
             try {
                 const userid = user.user._id;
-                const response = await axios.get(`http://localhost:5000/gethistroy/${userid}`);
+                const response = await axios.get(`https://v-test-vkux.onrender.com/gethistroy/${userid}`);
                 if (response.data.mtype !== "success") {
                     setError(true);
                 } else {

@@ -24,7 +24,7 @@ const Profilepayemnt = () => {
 
         // Make API request to backend to initiate payment
         try {
-            const response = await axios.post('http://localhost:5000/checkout', {
+            const response = await axios.post('https://v-test-vkux.onrender.com/checkout', {
                 amount: ruppe, userid
             });
 

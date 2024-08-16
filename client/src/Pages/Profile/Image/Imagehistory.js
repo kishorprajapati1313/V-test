@@ -15,7 +15,7 @@ const Imagehistory = () => {
         const fetchHistory = async () => {
             try {
                 const userid = users.user._id;
-                const response = await axios.get(`http://localhost:5000/userimagehistroy/${userid}`);
+                const response = await axios.get(`https://v-test-vkux.onrender.com/userimagehistroy/${userid}`);
 
                 setUserHistory(response.data.getuser);
                 setLoading(false);
