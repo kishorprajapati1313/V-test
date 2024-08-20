@@ -34,9 +34,7 @@ app.use(cors({
 app.use(express.json({ limit: '1000mb' }));
 app.use(express.urlencoded({ limit: '1000mb', extended: true }));
 
-mongoose.connect("mongodb://localhost:27017/commondb", {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
+mongoose.connect("mongodb+srv://xc:xc1010%40gmail@cluster0.32ogv.mongodb.net/commondb", {
 }).then(() => {
   console.log("MongoDB connected successfully");
 }).catch(err => {
