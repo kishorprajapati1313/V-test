@@ -17,33 +17,35 @@ const allowedOrigins = [
 ];
 
 app.use(cors({
-  origin: function(origin, callback){
-    // allow requests with no origin (like mobile apps or curl requests)
-    if(!origin) return callback(null, true);
-    if(allowedOrigins.indexOf(origin) === -1){
+  origin: function(origin, callback) {
+    if (!origin) return callback(null, true);
+    if (allowedOrigins.indexOf(origin) === -1) {
       const msg = 'The CORS policy for this site does not allow access from the specified Origin.';
       return callback(new Error(msg), false);
     }
     return callback(null, true);
   },
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  credentials: true // If you need to handle cookies or authentication tokens
+  credentials: true
 }));
 
 // Body parsing middleware
 app.use(express.json({ limit: '1000mb' }));
 app.use(express.urlencoded({ limit: '1000mb', extended: true }));
 
-mongoose.connect('mongodb+srv://bahaxa8848:PTCxSrbm9D11GcgS@cluster01.uuxnv.mongodb.net/?retryWrites=true&w=majority&appName=Cluster01', {
+// MongoDB connection
+mongoose.connect('mongodb+srv://bahaxa8848:PTCxSrbm9D11GcgS@cluster01.uuxnv.mongodb.net/commondb?retryWrites=true&w=majority&appName=Cluster01', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
-}).then(() => {
-  console.log('Local MongoDB connected successfully');
-}).catch(err => {
-  console.error('MongoDB connection error:', err);
+})
+.then(() => {
+  console.log('MongoDB connected successfully');
+})
+.catch(err => {
+  console.error('MongoDB connection error:', err.message); // Log just the message
 });
 
-
+// Routes
 app.use(signroute);
 app.use(userdata);
 app.use(forgotpass);
