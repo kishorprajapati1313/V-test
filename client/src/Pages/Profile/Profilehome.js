@@ -13,7 +13,7 @@ const Profilehome = () => {
     useEffect(() => {
         const fetchdata = async () => {
             const userid = user.user._id
-            const response = await axios.get(`https://v-test-vkux.onrender.com/getdata/${userid}`);
+            const response = await axios.get(`https://v-test-1-backend.onrender.com/getdata/${userid}`);
             setUserData(response.data)
 
         }

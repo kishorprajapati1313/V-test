@@ -18,7 +18,7 @@ const Forgot = () => {
         setLoading(true); // Start loading
 
         try {
-            const response = await axios.post("https://v-test-vkux.onrender.com/getuser", { email });
+            const response = await axios.post("https://v-test-1-backend.onrender.com/getuser", { email });
             // console.log(response.data);
 
             if (response.data.mtype !== "success") {
@@ -29,7 +29,7 @@ const Forgot = () => {
                 const randomCode = Math.floor(100000 + Math.random() * 900000);
                 // console.log(randomCode);
 
-                const emailResponse = await axios.post("https://v-test-vkux.onrender.com/sendmail", { randomCode, email });
+                const emailResponse = await axios.post("https://v-test-1-backend.onrender.com/sendmail", { randomCode, email });
 
                 if (emailResponse.data.mtype === "success") {
                     setStep(2);
@@ -51,7 +51,7 @@ const Forgot = () => {
         setLoading(true); // Start loading
 
         try {
-            const response = await axios.post("https://v-test-vkux.onrender.com/codecheck", { code, email });
+            const response = await axios.post("https://v-test-1-backend.onrender.com/codecheck", { code, email });
             // console.log(response.data);
 
             const responseData = response.data;
@@ -79,7 +79,7 @@ const Forgot = () => {
         setLoading(true); // Start loading
 
         try {
-            const response = await axios.post("https://v-test-vkux.onrender.com/updatepass", {newPassword, email})
+            const response = await axios.post("https://v-test-1-backend.onrender.com/updatepass", {newPassword, email})
             // console.log(response.data)
             if(response.data.mtype !== "success"){
                 setError(response.data.message);
