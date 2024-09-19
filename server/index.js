@@ -34,7 +34,7 @@ app.use(cors({
 app.use(express.json({ limit: '1000mb' }));
 app.use(express.urlencoded({ limit: '1000mb', extended: true }));
 
-mongoose.connect('mongodb+srv://<db_username>:PTCxSrbm9D11GcgS@cluster01.uuxnv.mongodb.net/?retryWrites=true&w=majority&appName=Cluster01', {
+mongoose.connect('mongodb+srv://bahaxa8848:PTCxSrbm9D11GcgS@cluster01.uuxnv.mongodb.net/?retryWrites=true&w=majority&appName=Cluster01', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 }).then(() => {
