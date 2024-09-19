@@ -13,7 +13,8 @@ const app = express();
 // Configure CORS to allow requests from specific origins
 const allowedOrigins = [
   'https://66bee5e69b90ffb89ad8d597--thriving-gumption-ae189f.netlify.app',
-  'https://thriving-gumption-ae189f.netlify.app'
+  'https://thriving-gumption-ae189f.netlify.app',
+  'https://regal-sunshine-279c0c.netlify.app'
 ];
 
 app.use(cors({
