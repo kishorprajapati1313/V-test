@@ -34,12 +34,15 @@ app.use(cors({
 app.use(express.json({ limit: '1000mb' }));
 app.use(express.urlencoded({ limit: '1000mb', extended: true }));
 
-mongoose.connect("mongodb+srv://xc:xc1010%40gmail@cluster0.32ogv.mongodb.net/commondb", {
+mongoose.connect('mongodb://localhost:27017/commondb', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
 }).then(() => {
-  console.log("MongoDB connected successfully");
+  console.log('Local MongoDB connected successfully');
 }).catch(err => {
-  console.error("MongoDB connection error:", err);
+  console.error('MongoDB connection error:', err);
 });
+
 
 app.use(signroute);
 app.use(userdata);
