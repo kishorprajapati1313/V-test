@@ -16,22 +16,7 @@ const allowedOrigins = [
 ];
 
 // Middleware to handle CORS
-app.use(cors({
-  origin: (origin, callback) => {
-    if (!origin || allowedOrigins.includes(origin)) {
-      return callback(null, true);
-    }
-    const msg = 'The CORS policy does not allow access from this origin.';
-    return callback(new Error(msg), false);
-  },
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization'], // Add any other headers you need
-  credentials: true,
-}));
-
-
-// Preflight handling for all routes
-app.options('*', cors());
+app.use(cors());
 
 // Body parsing middleware to handle incoming request payloads
 app.use(express.json({ limit: '1000mb' }));
