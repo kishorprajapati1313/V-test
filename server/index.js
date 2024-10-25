@@ -23,7 +23,10 @@ app.use(express.json({ limit: '1000mb' }));
 app.use(express.urlencoded({ limit: '1000mb', extended: true }));
 
 // MongoDB connection setup
-mongoose.connect('mongodb+srv://bahaxa8848:PTCxSrbm9D11GcgS@cluster01.uuxnv.mongodb.net/commondb?retryWrites=true&w=majority&appName=Cluster01', {
+//user:one1010piece1111 password:LSkd8pbeNd7rY1n9
+//mongoose.connect('mongodb+srv://bahaxa8848:PTCxSrbm9D11GcgS@cluster01.uuxnv.mongodb.net/commondb?retryWrites=true&w=majority&appName=Cluster01', {
+
+mongoose.connect('mongodb+srv://one1010piece1111:LSkd8pbeNd7rY1n9@cluster01.uuxnv.mongodb.net/commondb?retryWrites=true&w=majority&appName=Cluster01', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 })
